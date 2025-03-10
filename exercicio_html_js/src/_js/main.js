@@ -1,45 +1,38 @@
-const form = document.getElementById('form-depositor');
-const nomeBenficiario = document.getElementById('nome-beneficiario');
-let formEValido = false;
+const form = document.getElementById("form-depositor");
 
-function validaNome(nomeCompleto){
-    const nomeComoArray =  nomeCompleto.split(' ');
-    return nomeComoArray.length >= 2;
-}
+form.addEventListener('submit', function(event){
+   event.preventDefault();
+
+    
+    const campoA = document.getElementById('CampoA').value;
+    const campoB = document.getElementById('CampoB').value;
+    const erroMessagem = document.querySelector('.erro-messagem');
+    const successoMessagem = document.querySelector('.successo-messagem');
+    const numeroA = parseFloat(campoA);
+    const numeroB = parseFloat(campoB);
 
 
-form.addEventListener('submit', function(e){
-   e.preventDefault();
+    erroMessagem.textContent = '';
+    successoMessagem.textContent = '';
+    
 
-   const numeroContaBeneficiario = document.getElementById('numero-conta');
-   const valorDepositor = document.getElementById('valor-depositor');
-   const mensagemSucesso = `Montante de: <b>${valorDepositor.value}</b> depositado para o cliente <b>${nomeBenficiario.value}</b> - conta: <b>${numeroContaBeneficiario.value}</b>`;
-   const mensagemErro = `O nome precisa ser completor`;
-
-   formEValido = validaNome(nomeBenficiario.value);
-   if(formEValido) {
-       const containerMenssagemSuccesso =  document.querySelector('.successo-messagem');
-       containerMenssagemSuccesso.innerHTML = mensagemSucesso;
-       containerMenssagemSuccesso.style.display = 'block'
-   }else {
-      const containerMenssagemErro = document.querySelector('.erro-messagem');
-      nomeBenficiario.style.border = '1px solid red';
-      containerMenssagemErro.innerHTML = mensagemErro;
-      containerMenssagemErro.style.display = 'block'
-   }
-})
-
-nomeBenficiario.addEventListener('keyup', function(e){
-   console.log(e.target.value);
-   formEValido = validaNome(e.target.value);
-
-   if(!formEValido) {
-       nomeBenficiario.style.border = '1px solid red';
-       document.querySelector('.erro-messagem').style.display = 'block'
-  }else {
-      nomeBenficiario.style.border = 'none';
-      document.querySelector('.erro-messagem').style.display = 'none';
-      
-  }
+    if(numeroA === 0 || numeroB === 0){
+            if(numeroA == 0){
+                erroMessagem.className = "messagem negativo";
+                return(erroMessagem.textContent = "Preencha ambos os campos ser zero.");
+            }else if(numeroB == 0){
+                erroMessagem.className = "messagem negativo";
+                
+                return(erroMessagem.textContent = "Preencha ambos os campos ser zero.");
+            }
+    }else{
+        if(numeroB > numeroA){
+            successoMessagem.className = "messagem positivo";
+            return(successoMessagem.textContent = "O Formuário válido! o número B é maior que o número A.")
+        }else{
+            erroMessagem.className = "messagem negativo";
+            return(erroMessagem.textContent = "O Formuário válido! o número A é maior que o número B.")
+        }
+    }
 
 });
