@@ -1,0 +1,74 @@
+main.estrucao
+{
+    width:100%;
+    height:100%;
+    background-image:url("../_imagens/wallpaper/img.jpg");
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-position:100%;
+}
+.estrucao .estrucaoFormulario{
+    width:440px;
+    height:500px;
+    padding:20px;
+    border-radius:27px;
+    background-color:#d0d7dc70;
+    position: absolute;
+    top:95px;
+}
+.estrucaoFormulario form label{
+    position: relative;
+    top:12px;
+    left:12px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size:21px;
+    color:#707070;
+}
+.estrucaoFormulario form input{
+    width:100%;
+    height:60px;
+    border-radius:17px;
+    overflow:none;
+    outline:none;
+    border:none;
+    padding-left:20px;
+    margin-top:20px;
+   
+}
+.estrucaoFormulario form input::placeholder{
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size:17px;
+    opacity:0.5;
+}
+.estrucaoFormulario button{
+    width:100%;
+    height:60px;
+    position: relative;
+    top:15px;
+    left:0;
+    border-radius:17px;
+    border:none;
+    background-color:#83A1B4;
+    margin-top:20px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size:32px;
+    color:#fff;
+    cursor: pointer;
+}
+.mensagem {
+    margin-top: 10px;
+    font-weight:400;
+    position: relative;
+    top:45px;
+    background-color:#58ff9e;
+    padding:10px;
+    border-radius:27px;
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-size:15px;
+    text-align: center;
+    display:none;
+}

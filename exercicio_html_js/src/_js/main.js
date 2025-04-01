@@ -1,38 +1,40 @@
-const form = document.getElementById("form-depositor");
+const formulario = document.getElementById("formulario");
+const mensagem = document.getElementById("mensagem");
 
-form.addEventListener('submit', function(event){
-   event.preventDefault();
+formulario.addEventListener('submit', function(e){
+    e.preventDefault();// Evita recarregar a página
 
-    
-    const campoA = document.getElementById('CampoA').value;
-    const campoB = document.getElementById('CampoB').value;
-    const erroMessagem = document.querySelector('.erro-messagem');
-    const successoMessagem = document.querySelector('.successo-messagem');
-    const numeroA = parseFloat(campoA);
-    const numeroB = parseFloat(campoB);
+    const campoA = parseFloat(document.getElementById("CampoA").value);
+    const campoB = parseFloat(document.getElementById("CampoB").value);
 
-
-    erroMessagem.textContent = '';
-    successoMessagem.textContent = '';
-    
-
-    if(numeroA === 0 || numeroB === 0){
-            if(numeroA == 0){
-                erroMessagem.className = "messagem negativo";
-                return(erroMessagem.textContent = "Preencha ambos os campos ser zero.");
-            }else if(numeroB == 0){
-                erroMessagem.className = "messagem negativo";
-                
-                return(erroMessagem.textContent = "Preencha ambos os campos ser zero.");
-            }
-    }else{
-        if(numeroB > numeroA){
-            successoMessagem.className = "messagem positivo";
-            return(successoMessagem.textContent = "O Formuário válido! o número B é maior que o número A.")
-        }else{
-            erroMessagem.className = "messagem negativo";
-            return(erroMessagem.textContent = "O Formuário válido! o número A é maior que o número B.")
-        }
+    if(isNaN(campoA) || isNaN(campoB)){
+        mensagem.textContent = "Por favor, insira números válidos.";
+        mensagem.style.color = "#ffff";
+        mensagem.style.backgroundColor = "#F22222";
+        return;
     }
 
-});
+    if((campoA <= 0) || (campoB <= 0))
+    {
+        mensagem.textContent = "Completor caixa outro numero";
+        mensagem.style.color = "#fff";
+        mensagem.style.display = "block";
+        mensagem.style.backgroundColor = "#F22222";  
+    }else{
+
+    
+
+    if (campoB > campoA) {
+        mensagem.textContent = "Formulário válido! O número B é maior que o número A.";
+        mensagem.style.color = "#fff";
+        mensagem.style.display = "block";
+        mensagem.style.backgroundColor = "#10E8D9";
+    } else {
+        mensagem.textContent = "Formulário inválido! O número A deve ser maior que o número B.";
+        mensagem.style.color = "#fff";
+        mensagem.style.display = "block";
+        mensagem.style.backgroundColor = "#FFA916";
+    }
+}
+
+})

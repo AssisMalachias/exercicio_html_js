@@ -2,38 +2,36 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>PlacaCodigo| Project caixa dois numero</title>
 
-    <!-- link css  -->
-     <link rel="stylesheet" href="./src/_css/fonts.css"/>
-     <link rel="stylesheet" href="./src/_css/main.css"/>
-     <link rel="stylesheet" href="./src/_css/reset.css"/>
-    <!--------------->
+    <!--- link Cascading Style Sheets-->
+      <link rel="stylesheet" href="./src/_css/fonts.css"/>
+      <link rel="stylesheet" href="./src/_css/style.css"/>
+      <link rel="stylesheet" href="./src/_css/reset.css"/>  
+    <!--------------------------------->
 
 </head>
 <body>
-    <main>
+    <main class="estrucao">
         <div class="container">
-        <section class="formulario">
-            
-                <form action="" method="get" id="form-depositor">
-                    <h1>Placa Banking </h1>
-                    <h2>Depositor</h2>
-                    <label for="numero-conta">campo A</label><br>
-                    <input type="number" name="numero-conta" id="CampoA" placeholder="Digite um numero " required/><br>
-                    
-                    <label for="valor-depositor">campo B</label><br>
-                    <input type="number" name="valor-depositor" id="CampoB" placeholder="Digite segundo numero." required/><br>
-                    <button type="submit">Enviar</button>
-                </form><!-- formulario form-->
-                <p class="erro-messagem"></p>
-                <p class="successo-messagem"></p>
-        </section><!-- formulario-->
-    </div><!-- container -->
-    </main>
 
+            <div class="estrucaoFormulario">
+                <form  id="formulario">
+                    <label for="campoA">Campo A</label><br>
+                    <input type="number"  id="CampoA" name="campoA" placeholder="Digite numero campo A:"><br>
+
+                    <label for="campoA">Campo B</label><br>
+                    <input type="number"  id="CampoB" name="campoB" placeholder="Digite numero campo B:">
+
+                    <button  type="submit">ENVIAR</button>
+                </form>
+                <p class="mensagem" id="mensagem"></p>
+            </div><!-- estrucaoFormulario -->
+            
+            <div class="clear"></div><!-- clear -->
+        </div><!-- container -->
+    </main>
     <script src="./src/_js/main.js"></script>
 </body>
 </html>
